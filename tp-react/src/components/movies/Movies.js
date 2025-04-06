@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-apiKey=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkOWU4NDc0ZTU4ODA5YzM3ZGFkMjViYzMzNDFkYTNlNSIsIm5iZiI6MTY5OTM1MjEyOC40MDIsInN1YiI6IjY1NGEwZTQwNDM0OTRmMDEwMWM5ODhhNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.y5TGRfZJ-nFZhgyVX_Dmz2twTKfe_FwFkVHVisjvCqg
 
 
 class Movies extends Component {
@@ -9,21 +8,42 @@ class Movies extends Component {
     constructor(){
         super();
         this.state={
-            valor:0,
+           valor:0,
         }
     }
+
 
     apiCall(url,consecuencia){
         fetch(url)
         .then(resp=> resp.json())
-        .then(resp =>console.log(resp.data.results))
+        .then(data =>consecuencia(data))
         .catch(err=>console.log(err))
     };
 
     componentDidMount(){
         console.log("me monte")
-        this.apiCall(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`, options)
+       this.apiCall(`https://api.themoviedb.org/3/movie/popular?api_key=d9e8474e58809c37dad25bc3341da3e5`, this.datos);
 
+    }
+
+    datos =(data)=>{
+        this.setState({info:data.data})
+        
+    }
+    componentDidUpdate(){
+        console.log("me actualice");
+        
+    }
+    render(){
+     
+        console.log("estoy renderizado");
+
+        return(
+            <div>
+                <p>{this.setState.info}</p>
+            </div>
+        )
+        
     }
 
 }
