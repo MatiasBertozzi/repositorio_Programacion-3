@@ -1,47 +1,56 @@
 import React, { Component } from "react";
-
-
+import Peliculas from "../peliculas/peliculas";
 
 class Movies extends Component {
-
-
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
-           valor:0,
+           info:[],
+           playing:[]
         }
     }
 
-
-    apiCall(url,consecuencia){
-        fetch(url)
-        .then(resp=> resp.json())
-        .then(data =>consecuencia(data))
-        .catch(err=>console.log(err))
-    };
-
     componentDidMount(){
         console.log("me monte")
-       this.apiCall(`https://api.themoviedb.org/3/movie/popular?api_key=d9e8474e58809c37dad25bc3341da3e5`, this.datos);
+       fetch(`https://api.themoviedb.org/3/movie/popular?api_key=d9e8474e58809c37dad25bc3341da3e5`)
+        .then((resp)=> resp.json())
+        .then((data)=>{console.log(data) 
+            this.setState({info:data.results})})
+        .catch((error) => console.log(error) )
 
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=d9e8474e58809c37dad25bc3341da3e5`)
+        .then((resp)=> resp.json())
+        .then((data)=>{console.log(data) 
+            this.setState({playing:data.results})})
+        .catch((error) => console.log(error) )
     }
-
-    datos =(data)=>{
-        this.setState({info:data.data})
-        
-    }
+   
     componentDidUpdate(){
-        console.log("me actualice");
-        
-    }
-    render(){
-     
-        console.log("estoy renderizado");
+        console.log(this.state.info);  
+    console.log(this.state.playing);
+      }
 
+    render(){
+        console.log("estoy renderizado");
         return(
-            <div>
-                <p>{this.setState.info}</p>
-            </div>
+          <><section>
+          {
+                this.state.info.length === 0 ?
+                <h1>Cargando</h1>
+                :
+                this.state.info.map((elm, idx) => <Peliculas pelis={elm} key={idx + elm.id} /> )
+
+            }</section>
+            <h1>Reproduciendo</h1>
+            <section>
+             {
+                this.state.playing.length === 0 ?
+                <h1>Cargando</h1>
+                :
+                this.state.playing.map((elm, idx) => <Peliculas pelis={elm} key={idx + elm.id} /> )
+
+            }</section>
+            </>
         )
         
     }
