@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Peliculas from "../peliculas/peliculas";
-
+import "./Movies.css"
 class Movies extends Component {
     constructor(props){
         super(props);

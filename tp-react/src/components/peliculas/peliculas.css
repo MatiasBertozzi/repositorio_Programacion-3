@@ -1,0 +1,22 @@
+div.pelicula{
+    background-color: rgb(121, 121, 199);
+    border: black ;
+   height:600px;
+   width:40vw;
+   margin: auto;
+   margin-bottom: 10px;
+   padding:10px;
+   border-radius: 8px;
+}
+
+
+ul.botones{list-style: none;
+    border-radius: 20px;
+}
+
+    li.boton{
+        margin-top: 3px;
+        border-radius: 10px;
+        margin-right: 15%;
+        background-color: blueviolet;
+    }

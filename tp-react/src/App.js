@@ -1,3 +1,4 @@
+import Header from "./components/Header/Header";
 import Movies from "./components/movies/Movies";
 
 
@@ -5,7 +6,8 @@ import Movies from "./components/movies/Movies";
 function App() {
   return (
     <>
-  <Movies/>
+    <Header/>
+    <Movies/>
   
   </>
   );
