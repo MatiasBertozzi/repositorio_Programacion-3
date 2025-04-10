@@ -5,10 +5,10 @@ function Nav(props) {
     
     return(
         <React.Fragment>
-            <div className="nav">
-       <ul className="lista">
-        {props.links.map((elm,idx)=> <li key={elm+idx}> {elm.name}</li>)}
-        </ul>
+        <div className="nav">
+            <ul className="lista">
+                {props.links.map((elm,idx)=> <li key={elm+idx}> {elm.name}</li>)}
+                </ul>
          <p>The Movies</p>
          <img src=""/>
         </div>
