@@ -1,11 +1,14 @@
 import React from "react";
+import "./Footer.css";
 
 function Footer() {
-    return(
-        <React.Fragment>
-        <p> Matias Bertozzi, Facundo Storani, Gregorio Beltran </p>
-        </React.Fragment>
-    )
+  return (
+    <footer>
+      <p className="footer">
+      Matias Bertozzi, Facundo Storani, Gregorio Beltran
+      </p>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

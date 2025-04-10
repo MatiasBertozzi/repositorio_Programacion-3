@@ -1,17 +1,20 @@
-import React from "react";
-import Nav from "../Nav/Nav";
-function Header() {
-    
-    let lista=[{name:"Home"},{name:"Favoritos"},{name:"Ver todas"}]
-      
-    return(
-        
-        <React.Fragment>
-       
-        <Nav  links={lista}/>
+import NavBar from "../NavBar/NavBar";
+import "./Header.css";
 
-        </React.Fragment>
-    )
-}
+const Header = () => {
+  return (
+<>
+    <nav>
+      <ul className="main-nav">
+        <NavBar link="/" elemento="Home" />
+        <NavBar link="/favorites" elemento="Favoritos" />
+        <NavBar link="/viewall/popular" elemento="Populares" />
+        <NavBar link="/viewall/now_playing" elemento="En cartelera" />
+        </ul>
+        <img className="imagen" src="/Images/green.png" alt="" />
+    </nav>
+    </>
+  );
+};
 
-export default Header
+export default Header;
