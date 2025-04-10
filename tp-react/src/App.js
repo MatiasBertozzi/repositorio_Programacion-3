@@ -8,8 +8,8 @@ function App() {
     <>
     <Header/>
     <Movies/>
-  <Movies/>
-  <Footer/>
+  
+    <Footer/>
 
   
   </>
