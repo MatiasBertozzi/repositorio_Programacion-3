@@ -26,7 +26,10 @@ class Buscador extends Component{
     render(){
         return(
             <form onSubmit={(evento) => this.manejarSubmit(evento) } className='form-buscador' >
-                <input onChange={(evento) => this.controlarInput(evento)} value={this.state.valorInput}/> 
+                <input 
+                onChange={(evento) => this.controlarInput(evento)} 
+                value={this.state.valorInput}
+                /> 
 
             </form>
         )
