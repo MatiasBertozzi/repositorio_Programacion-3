@@ -1,0 +1,16 @@
+.search-form_input {
+  border: solid;
+  width: 30%;
+  padding: 7px 35px 7px 7px;
+  border-radius: 3px;
+  height: 25px;
+  font-size: 1em;
+  margin-top: 20px;
+  margin-left: 30%;
+}
+
+.search-form_button {
+  height: 30%;
+  background-color: #080808;
+  margin: 0%;
+}

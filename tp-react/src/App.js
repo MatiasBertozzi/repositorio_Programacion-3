@@ -4,6 +4,7 @@ import Footer from "./components/Footer/Footer";
 //import Movies from "./screens/home/home";
 
 
+
 function App() {
   return (
     <>
