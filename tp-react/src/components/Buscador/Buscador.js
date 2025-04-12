@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import "./Buscador.css"
 class Buscador extends Component{
 
     constructor(props){
@@ -13,12 +13,9 @@ class Buscador extends Component{
 
     };
     controlarInput(evento){
-       // console.log("Esto es lo que llega por el evento", evento)
-        
-        this.setState(
-            {valorInput: evento.target.value},
-            () => this.props.filtro(this.state.valorInput)
-
+        console.log("Esto es lo que llega por el evento", evento)
+        this.setState({valorInput: evento.target.value},
+            ()=> this.props.filtro(this.state.valorInput)
         )
 
     };
@@ -26,8 +23,12 @@ class Buscador extends Component{
     render(){
         return(
             <form onSubmit={(evento) => this.manejarSubmit(evento) } className='form-buscador' >
-                <input onChange={(evento) => this.controlarInput(evento)} value={this.state.valorInput}/> 
-
+                <input type='text' 
+                onChange={(evento) => this.controlarInput(evento)} 
+                value={this.state.valorInput} 
+                placeholder='Buscar pelicula' 
+                className='form-input'/> 
+                <button type='submit' > Buscar</button>
             </form>
         )
 
