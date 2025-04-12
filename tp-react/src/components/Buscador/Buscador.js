@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import "./Buscador.css"
 class Buscador extends Component{
 
     constructor(props){
@@ -13,12 +13,9 @@ class Buscador extends Component{
 
     };
     controlarInput(evento){
-       // console.log("Esto es lo que llega por el evento", evento)
-        
-        this.setState(
-            {valorInput: evento.target.value},
-            () => this.props.filtro(this.state.valorInput)
-
+        console.log("Esto es lo que llega por el evento", evento)
+        this.setState({valorInput: evento.target.value},
+            ()=> this.props.filtro(this.state.valorInput)
         )
 
     };

@@ -9,7 +9,7 @@ class Movies extends Component {
            info:[],
            playing:[],
            backupInfo: [],
-           backupPlaying:[]
+           backupPlaying:[],
         }
     }
 
@@ -23,10 +23,8 @@ class Movies extends Component {
 
         fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=d9e8474e58809c37dad25bc3341da3e5`)
         .then((resp)=> resp.json())
-        .then((data)=>{console.log(data) 
-            
-            this.setState({playing:data.results, backupPlaying:data.results})})
-           
+        .then((data)=>{console.log(data)            
+            this.setState({playing:data.results, backupPlaying:data.results})})           
         .catch((error) => console.log(error) )
 
     }
@@ -36,16 +34,16 @@ class Movies extends Component {
     console.log(this.state.playing);
     }
 
-    filtrarPeliculas(busquedaPleicula){
+    filtrarPeliculas(busquedaPelicula){
         const peliculasBusqueda = this.state.backupInfo.filter((elem) => 
-            elem.title.toLowerCase().includes(busquedaPleicula.toLowerCase()))
+            elem.title.toLowerCase().includes(busquedaPelicula.toLowerCase()))
         this.setState({info: peliculasBusqueda})
-
     }
-    filtroPeliculas(busquedaUsuario){
-        const peliBusqueda = this.state.backupPlaying.filter((elem) =>
-            elem.title.toLowerCase().includes(busquedaUsuario.toLowerCase()))
-        this.setState({playing:peliBusqueda})    
+    filtropeli(busquedaPeli){
+        const pelibusqueda = this.state.backupPlaying.filter((elem) =>
+            elem.title.toLowerCase().includes(busquedaPeli.toLowerCase()))
+        this.setState({playing:pelibusqueda})
+        
     }
 
     render(){
@@ -53,7 +51,7 @@ class Movies extends Component {
         return(
             <>
                 <Buscador filtro ={(busqueda) => this.filtrarPeliculas(busqueda)}/>
-                <h1>Lo mejor de la semana</h1>
+                <h1>Peliculas populares</h1>
 
                 <section>
                     {
@@ -65,8 +63,8 @@ class Movies extends Component {
 
                     }
                 </section>
-                <Buscador filtro={(busqueda) => this.filtroPeliculas(busqueda)}/>
-                <h1>Reproduciendo</h1>
+                <Buscador filtro={(busqueda) => this.filtropeli(busqueda)}/>
+                <h1>En cartelera</h1>
                 <section>
                     {
                         this.state.playing.length === 0 ?
