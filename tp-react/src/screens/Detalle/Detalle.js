@@ -61,9 +61,6 @@ export default class Detalle extends Component {
         })
         }
 
-
-
-
   render() {
     return (
       <>

@@ -9,6 +9,7 @@ export default class Peliculas extends Component {
         this.state={
           pelis:props.pelis,
           mostrarContenido:false,
+          favorito: true
           
         }
     }
@@ -22,6 +23,47 @@ export default class Peliculas extends Component {
   que ofrece metodos para lograr esto, para eso necesitamos que lleguen las props de la libreria*/
 
 
+  componentDidMount(){
+  let storage= localStorage.getItem('Favoritos')
+ 
+  if(storage !== null){
+    let storageParseado = JSON.parse(storage)
+    let estaMiId = storageParseado.includes(this.state.pelis.id)
+
+    if(estaMiId){
+      this.setState({favorito: true})
+    }}}
+
+  agregarFavoritos(id){
+    let storage = localStorage.getItem('Favoritos')
+    if(storage !== null){
+      let arrParseado = JSON.parse(storage)
+      arrParseado.push(id)
+      let arrStringificado = JSON.stringify(arrParseado)
+      localStorage.setItem('Favoritos', arrStringificado)
+    } else {
+      let primerID = [id]
+      let arrStringificado = JSON.stringify(primerID)
+      localStorage.setItem('Favoritos', arrStringificado)
+    }
+    this.setState({
+        favorito: false
+    })
+}
+
+sacarFavoritos(id){
+    const storage = localStorage.getItem('Favoritos')
+    const storageParseado = JSON.parse(storage)
+    const filtrarStorage = storageParseado.filter((elm) => elm !== id )
+    const storageStringificado = JSON.stringify(filtrarStorage)
+    localStorage.setItem('Favoritos', storageStringificado)
+
+    this.setState({
+        favorito: true
+    })
+    }
+
+
   render() {     
     return (
      <>
@@ -33,10 +75,13 @@ export default class Peliculas extends Component {
             {this.state.mostrarContenido ?  
                 <li><button className='boton' onClick={() => this.ocultar()}>Ocultar descripcion</button></li>: 
                 <li><button className='boton' onClick={() => this.ocultar()}>Ver descripcion</button></li>}
-                 <Link to = {`/detalle/${this.state.pelis.id}`}> 
-                <li><button className='boton'>Ir a detalle</button></li>
-                 </Link> 
-                <li><button className='boton'><a>Agregar/quitar favorito</a></button></li>
+                 <li><Link to = {`/detalle/${this.state.pelis.id}`}> 
+                <button className='boton'>Ir a detalle</button>
+                 </Link> </li>
+                <li>{ this.state.favorito?
+                <button className='boton' onClick={()=> this.agregarFavoritos(this.state.pelis.id)}> Agregar a Favoritos</button>:
+                <button className='boton' onClick={()=> this.sacarFavoritos(this.state.pelis.id)}> Quitar de Favoritos</button>}
+        </li>
             </div>
         </div>
 </>
