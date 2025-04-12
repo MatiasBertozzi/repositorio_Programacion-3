@@ -42,8 +42,8 @@ class ViewAllMovies extends Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({
-          pelis: this.state.Movies.concat(data.results),
-          pelisFiltrado: this.state.moviesFiltrado.concat(data.results),
+          pelis: this.state.pelis.concat(data.results),
+          pelisFiltrado: this.state.pelisFiltrado.concat(data.results),
           numeroPag: this.state.numeroPag + 1,
         });
       })
@@ -62,7 +62,7 @@ class ViewAllMovies extends Component {
     const userValue = e.target.value;
     this.setState({
       filterValue: userValue,
-      pelisFiltrado: this.state.Movies.filter((pelis) =>
+      pelisFiltrado: this.state.pelis.filter((pelis) =>
         pelis.title.toLowerCase().includes(userValue.toLowerCase())
       ),
     });
