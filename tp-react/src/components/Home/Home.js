@@ -50,8 +50,9 @@ class Movies extends Component {
         console.log("estoy renderizado");
         return(
             <>
+                <h1 className="hUnoHome">Peliculas populares</h1>
                 <Buscador filtro ={(busqueda) => this.filtrarPeliculas(busqueda)}/>
-                <h1>Peliculas populares</h1>
+
 
                 <section>
                     {
@@ -63,8 +64,9 @@ class Movies extends Component {
 
                     }
                 </section>
+                <h1 className="hUnoHome">En cartelera</h1>
                 <Buscador filtro={(busqueda) => this.filtropeli(busqueda)}/>
-                <h1>En cartelera</h1>
+
                 <section>
                     {
                         this.state.playing.length === 0 ?
