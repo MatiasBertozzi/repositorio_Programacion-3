@@ -7,7 +7,8 @@ class Movies extends Component {
         super(props);
         this.state={
            info:[],
-           playing:[]
+           playing:[],
+           backUp:[]
         }
     }
 
@@ -16,7 +17,7 @@ class Movies extends Component {
        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=d9e8474e58809c37dad25bc3341da3e5`)
         .then((resp)=> resp.json())
         .then((data)=>{console.log(data) 
-            this.setState({info:data.results})})
+            this.setState({info:data.results,backUp:data.results})})
         .catch((error) => console.log(error) )
 
         fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=d9e8474e58809c37dad25bc3341da3e5`)
@@ -34,9 +35,9 @@ class Movies extends Component {
     console.log(this.state.playing);
       }
 
-    filtrarPeliculas(busquedaPleicula){
-        const peliculasBusqueda = this.state.playing.filter((elem) => 
-            elem.title.toLowerCase().includes(busquedaPleicula.toLowerCase()))
+    filtrarPeliculas(busquedaPelicula){
+        const peliculasBusqueda = this.state.backUp.filter((elem) => 
+            elem.title.toLowerCase().includes(busquedaPelicula.toLowerCase()))
         this.setState({playing: peliculasBusqueda})
     }
 
@@ -57,7 +58,7 @@ class Movies extends Component {
 
                     }
                 </section>
-                <h1>Reproduciendo</h1>
+                <h1>En cartelera</h1>
                 <section>
                     {
                         this.state.playing.length === 0 ?
