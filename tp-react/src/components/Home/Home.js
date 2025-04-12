@@ -59,7 +59,7 @@ class Movies extends Component {
                         this.state.info.length === 0 ?
                         <h1>Cargando</h1>
                         :
-                        this.state.info.map((elm, idx) => 
+                        this.state.info.slice(0, 5).map((elm, idx) => 
                         <Peliculas pelis={elm} key={idx + elm.id} /> )
 
                     }
@@ -72,7 +72,7 @@ class Movies extends Component {
                         this.state.playing.length === 0 ?
                         <h1>Cargando</h1>
                         :
-                        this.state.playing.map((elm, idx) => 
+                        this.state.playing.slice(0, 5).map((elm, idx) => 
                         <Peliculas pelis={elm} key={idx + elm.id} /> )
                     }
                 </section>
