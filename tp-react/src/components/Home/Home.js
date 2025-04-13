@@ -49,7 +49,7 @@ class Movies extends Component {
     }
 
     render(){
-        console.log("estoy renderizado");
+        
         return(
             <>
                 <h1 className="hUnoHome">Peliculas populares</h1>
