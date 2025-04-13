@@ -9,8 +9,7 @@ import Peliculas from "./components/peliculas/peliculas";
 import ViewAllMovies from "./screens/home/ViewAllMovies";
 import SearchResults from "./screens/home/SearchResults";
 import Detalle from "./screens/Detalle/Detalle";
-
-
+import NotFound from "./components/NotFound/NotFound";
 
 
 function App() {
@@ -24,6 +23,7 @@ function App() {
         <Route path="/search" component={SearchResults} />
         <Route path="/favorites" component={Favorites} />
         <Route path="/detalle/:id" component={Detalle} />
+        <Route path="" component={NotFound} />
       </Switch>
       <Footer />
     </>

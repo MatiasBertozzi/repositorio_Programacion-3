@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Peliculas from "../peliculas/peliculas";
 import Buscador from "../Buscador/Buscador";
 import "./Home.css"
+// import Loader from "../Loader/Loader";
+
 class Movies extends Component {
     constructor(props){
         super(props);
@@ -57,7 +59,7 @@ class Movies extends Component {
                 <section>
                     {
                         this.state.info.length === 0 ?
-                        <h1>Cargando</h1>
+                        <h1>Lo sentimos, en esta seccion no se encontraron reultados para su busqueda</h1>
                         :
                         this.state.info.slice(0, 5).map((elm, idx) => 
                         <Peliculas pelis={elm} key={idx + elm.id} /> )
@@ -70,7 +72,7 @@ class Movies extends Component {
                 <section>
                     {
                         this.state.playing.length === 0 ?
-                        <h1>Cargando</h1>
+                        <h1>Lo sentimos, no se encontraron resultados para su busqueda</h1>
                         :
                         this.state.playing.slice(0, 5).map((elm, idx) => 
                         <Peliculas pelis={elm} key={idx + elm.id} /> )
