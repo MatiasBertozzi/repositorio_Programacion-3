@@ -20,38 +20,45 @@ export default class Detalle extends Component {
             console.log(data) 
             this.setState({info:data})})
         .catch((error) => console.log(error) )
-    
-        let storage= localStorage.getItem('Favoritos')
-        /* si el storage no es nulo quiere decir que hay un elemento, en este caso lo "traducimos" 
+
+
+     /* si el storage no es nulo quiere decir que hay un elemento, en este caso lo "traducimos" 
         a un lenguaje que podamos usar y luego lo guardamos en una variable */
+
+        let storage= localStorage.getItem('Favoritos')
         if(storage !== null){
           let storageParseado = JSON.parse(storage)
-          let estaMiId = storageParseado.includes(this.state.info.id)
-  
+          let NumId = Number(id)
+          let estaMiId = storageParseado.includes(NumId) 
+          /* el primer dato que definimos (en componentDidMount) es id, el cual el un paramerto de la ruta, es un string por lo que si la usamos en la
+          API no hay problema, pero si lo queremos comparar con uno de los id del localStorage con el includes, este nos devolvera
+          False ya que tiene que ser del mismo tipo de dato para que devuelva True y no se repitan los IDs, por eso transforma el 
+          id en un numero y lo guardo en la nueva variable NumId */       
+
+
           if(estaMiId){
-            this.setState({favorito: true})
+            this.setState({favorito: false})
           }
         }
     }
 
 
     agregarFavoritos(id){
-        let storage = localStorage.getItem('Favoritos')
-        if(storage !== null){
-          let arrParseado = JSON.parse(storage)
-          arrParseado.push(id)
-          let arrStringificado = JSON.stringify(arrParseado)
-          localStorage.setItem('Favoritos', arrStringificado)
-        } else {
-          let primerID = [id]
-          let arrStringificado = JSON.stringify(primerID)
-          localStorage.setItem('Favoritos', arrStringificado)
-        }
-        this.setState({
-            favorito: false
-
-        })
-    }
+      let storage = localStorage.getItem('Favoritos')
+      if(storage !== null){
+        let arrParseado = JSON.parse(storage)
+        arrParseado.push(id)
+        let arrStringificado = JSON.stringify(arrParseado)
+        localStorage.setItem('Favoritos', arrStringificado)
+      } else {
+        let primerID = [id]
+        let arrStringificado = JSON.stringify(primerID)
+        localStorage.setItem('Favoritos', arrStringificado)
+      }
+      this.setState({
+          favorito: false
+      })
+  }
     
 
     sacarFavoritos(id){
@@ -85,8 +92,8 @@ export default class Detalle extends Component {
                 )) : "Cargando..."}</p> 
 
                 { this.state.favorito?
-                <button className='bot' onClick={()=> this.agregarFavoritos(this.props.match.params.id)}> Agregar a Favoritos</button>:
-                <button className='bot' onClick={()=> this.sacarFavoritos(this.props.match.params.id)}> Quitar de Favoritos</button>}
+                <button className='bot' onClick={()=> this.agregarFavoritos(this.state.info.id)}> Agregar a Favoritos</button>:
+                <button className='bot' onClick={()=> this.sacarFavoritos(this.state.info.id)}> Quitar de Favoritos</button>}
         </div>
       </div>
       </>
