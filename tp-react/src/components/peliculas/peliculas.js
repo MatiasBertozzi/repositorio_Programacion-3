@@ -68,18 +68,29 @@ sacarFavoritos(id){
         <div className='pelicula'>
             <img className='portada' src={`https://image.tmdb.org/t/p/w185${this.state.pelis.poster_path}`}/>
             <p>Titulo: {this.state.pelis.title}</p>
-            <p className={this.state.mostrarContenido ? '' : 'hide'}>Descripcion: {this.state.pelis.overview}</p>
+            <p className={this.state.mostrarContenido ? '' : 'hide'}> Descripcion: {this.state.pelis.overview}</p>
             <div className='botones'>
-            {this.state.mostrarContenido ?  
-                <li><button className='boton' onClick={() => this.ocultar()}>Ocultar descripcion</button></li>: 
-                <li><button className='boton' onClick={() => this.ocultar()}>Ver descripcion</button></li>}
-                 <li><Link to = {`/detalle/${this.state.pelis.id}`}> 
-                <button className='boton'>Ir a detalle</button>
-                 </Link> </li>
+                {this.state.mostrarContenido ?  
+                <li><button className='boton' onClick={() => this.ocultar()}>
+                  Ocultar descripcion
+                  </button>
+                </li>: 
+                <li><button className='boton' onClick={() => this.ocultar()}>
+                  Ver descripcion
+                  </button>
+                </li>}
+                <li>
+                  <Link to = {`/detalle/${this.state.pelis.id}`}> 
+                    <button className='boton'>Ir a detalle</button>
+                  </Link> 
+                </li>
                 <li>{ this.state.favorito?
-                <button className='boton' onClick={()=> this.agregarFavoritos(this.state.pelis.id)}> Agregar a Favoritos</button>:
-                <button className='boton' onClick={()=> this.sacarFavoritos(this.state.pelis.id)}> Quitar de Favoritos</button>
-                }
+                  <button className='boton' onClick={()=> this.agregarFavoritos(this.state.pelis.id)}>
+                     Agregar a Favoritos
+                  </button>:
+                  <button className='boton' onClick={()=> this.sacarFavoritos(this.state.pelis.id)}>
+                     Quitar de Favoritos
+                  </button>}
                 </li>
             </div>
         </div>

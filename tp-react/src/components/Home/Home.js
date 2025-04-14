@@ -55,7 +55,6 @@ class Movies extends Component {
                 <h1 className="hUnoHome">Peliculas populares</h1>
                 <Buscador filtro ={(busqueda) => this.filtrarPeliculas(busqueda)}/>
 
-
                 <section>
                     {
                         this.state.info.length === 0 ?
@@ -66,6 +65,7 @@ class Movies extends Component {
 
                     }
                 </section>
+
                 <h1 className="hUnoHome">En cartelera</h1>
                 <Buscador filtro={(busqueda) => this.filtropeli(busqueda)}/>
 

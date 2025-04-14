@@ -9,7 +9,7 @@ const Header = () => {
             <NavBar link="/" elemento="Home" />
             <NavBar link="/favorites" elemento="Favoritos" />
             <NavBar link="/viewall/popular" elemento="Populares" />
-            <NavBar link="/viewall/now_playing" elemento="En cartelera" />
+            <NavBar link="/viewall/upComing" elemento="Estrenos" />
         </ul>
 
         <img className="imagen" src="/Images/green.png" alt="" />

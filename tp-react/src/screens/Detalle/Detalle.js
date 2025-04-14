@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import "./Detalle.css"
+
 
 export default class Detalle extends Component {
 
@@ -66,8 +68,9 @@ export default class Detalle extends Component {
   render() {
     return (
       <>
-      <div>
-        <img src={`https://image.tmdb.org/t/p/w300${this.state.info.poster_path}`}/>
+      <div className='padre'> 
+        <img className='imagen-detalle' src={`https://image.tmdb.org/t/p/w300${this.state.info.poster_path}`}/>
+        <div className='botones'>
         <p>Titulo:{this.state.info.title}</p>
         <p>Rating:{this.state.info.vote_average}</p>
         <p>Fecha de estreno:{this.state.info.release_date}</p>
@@ -82,9 +85,9 @@ export default class Detalle extends Component {
                 )) : "Cargando..."}</p> 
 
                 { this.state.favorito?
-                <button onClick={()=> this.agregarFavoritos(this.props.match.params.id)}> Agregar a Favoritos</button>:
-                <button onClick={()=> this.sacarFavoritos(this.props.match.params.id)}> Quitar de Favoritos</button>}
-        
+                <button className='bot' onClick={()=> this.agregarFavoritos(this.props.match.params.id)}> Agregar a Favoritos</button>:
+                <button className='bot' onClick={()=> this.sacarFavoritos(this.props.match.params.id)}> Quitar de Favoritos</button>}
+        </div>
       </div>
       </>
     )

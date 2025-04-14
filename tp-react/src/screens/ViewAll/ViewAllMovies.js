@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Peliculas from "../../components/peliculas/peliculas";
+// import Loader from "../../components/Loader/Loader";
 
 
 class ViewAllMovies extends Component {
@@ -19,7 +20,7 @@ class ViewAllMovies extends Component {
       isLoading: true,
     });
     fetch(
-      `https://api.themoviedb.org/3/movie/${this.state.name}?api_key=709280f7a436019eb21b72bc1317fa78`
+      `https://api.themoviedb.org/3/movie/${this.state.name}?api_key=d9e8474e58809c37dad25bc3341da3e5`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -73,7 +74,8 @@ class ViewAllMovies extends Component {
     return (
       <>
         <section>
-          {!this.state.isLoading && this.state.pelis.length > 0 ? (
+          {
+            !this.state.isLoading && this.state.pelis.length > 0 ? (
             <>
               <input
                 className="filter"
@@ -98,7 +100,7 @@ class ViewAllMovies extends Component {
                   </h2>
                 </>
               ) : (
-                ""
+                " "
               )}
               {peliculas.length !== 0 ? (
                 <>
@@ -113,9 +115,10 @@ class ViewAllMovies extends Component {
                 ""
               )}
             </>
-          ) : (
+            ) : (
             <null />
-          )}
+              )
+          }
         </section>
       </>
     );
