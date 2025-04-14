@@ -1,0 +1,11 @@
+.imagen-detalle{
+    margin-left: 40%;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.bot{
+    border-radius: 30px;
+    padding: 5px;
+    background-color: blueviolet;
+}

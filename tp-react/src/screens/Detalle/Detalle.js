@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import "./Detalle.css"
+
 
 export default class Detalle extends Component {
 
@@ -6,7 +8,7 @@ export default class Detalle extends Component {
         super(props)
         this.state={
             info:[],
-            favorito: true
+            favorito: true,
         }
     }
 
@@ -32,6 +34,7 @@ export default class Detalle extends Component {
         }
     }
 
+
     agregarFavoritos(id){
         let storage = localStorage.getItem('Favoritos')
         if(storage !== null){
@@ -46,9 +49,11 @@ export default class Detalle extends Component {
         }
         this.setState({
             favorito: false
+
         })
     }
     
+
     sacarFavoritos(id){
         const storage = localStorage.getItem('Favoritos')
         const storageParseado = JSON.parse(storage)
@@ -56,16 +61,16 @@ export default class Detalle extends Component {
         const storageStringificado = JSON.stringify(filtrarStorage)
         localStorage.setItem('Favoritos', storageStringificado)
     
-        this.setState({
-            favorito: true
-        })
+        this.setState({favorito: true})
+
         }
 
   render() {
     return (
       <>
-      <div>
-        <img src={`https://image.tmdb.org/t/p/w300${this.state.info.poster_path}`}/>
+      <div className='padre'> 
+        <img className='imagen-detalle' src={`https://image.tmdb.org/t/p/w300${this.state.info.poster_path}`}/>
+        <div className='botones'>
         <p>Titulo:{this.state.info.title}</p>
         <p>Rating:{this.state.info.vote_average}</p>
         <p>Fecha de estreno:{this.state.info.release_date}</p>
@@ -80,13 +85,14 @@ export default class Detalle extends Component {
                 )) : "Cargando..."}</p> 
 
                 { this.state.favorito?
-                <button onClick={()=> this.agregarFavoritos(this.props.match.params.id)}> Agregar a Favoritos</button>:
-                <button onClick={()=> this.sacarFavoritos(this.props.match.params.id)}> Quitar de Favoritos</button>}
-        
+                <button className='bot' onClick={()=> this.agregarFavoritos(this.props.match.params.id)}> Agregar a Favoritos</button>:
+                <button className='bot' onClick={()=> this.sacarFavoritos(this.props.match.params.id)}> Quitar de Favoritos</button>}
+        </div>
       </div>
       </>
     )
   }
+
 }
 
  
