@@ -10,19 +10,17 @@
     
   }
 
-  .portada {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-    margin-bottom: 10px;
-  }
+.portada {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
 
-  :hover.pelicula{
-    width: 270px;
-    transition: all 0.5s;
-  }
-
-
+:hover.pelicula{
+  width: 270px;
+  transition: all 0.5s;
+}
 
 .botones{list-style: none;
     border-radius: 20px;
@@ -41,9 +39,10 @@ button.boton{
         text-align: center;
     }
 
-  .hide{
-    display: none;
-  }
+.hide{
+  display: none;
+}
+
 .Titulo-pelis{
   display: flex;
   justify-content: center;
