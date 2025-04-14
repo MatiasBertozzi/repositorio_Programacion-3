@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Peliculas from "../peliculas/peliculas";
 import Buscador from "../Buscador/Buscador";
 import "./Home.css"
-// import Loader from "../Loader/Loader";
+import Loader from "../Loader/Loader";
 
 class Movies extends Component {
     constructor(props){
@@ -12,6 +12,7 @@ class Movies extends Component {
            playing:[],
            backupInfo: [],
            backupPlaying:[],
+           loading: false
         }
     }
 
@@ -62,8 +63,11 @@ class Movies extends Component {
                         :
                         this.state.info.slice(0, 5).map((elm, idx) => 
                         <Peliculas pelis={elm} key={idx + elm.id} /> )
+                        
 
                     }
+                    {this.state.loading && <Loader />}
+
                 </section>
 
                 <h1 className="hUnoHome">En cartelera</h1>
@@ -77,6 +81,8 @@ class Movies extends Component {
                         this.state.playing.slice(0, 5).map((elm, idx) => 
                         <Peliculas pelis={elm} key={idx + elm.id} /> )
                     }
+                    {this.state.loading && <Loader />}
+
                 </section>
             </>
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Peliculas from "../peliculas/peliculas";
 import Buscador from "../Buscador/Buscador";
 import Loader from "../Loader/Loader";
-//import "./Home.css"
+import "./UpComing.css"
 
 class upcoming extends Component {
     constructor(props){

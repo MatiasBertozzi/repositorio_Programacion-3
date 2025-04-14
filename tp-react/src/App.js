@@ -6,7 +6,6 @@ import Movies from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
 import Favorites from "./screens/Favorites/Favorites";
 import Peliculas from "./components/peliculas/peliculas";
-import ViewAllMovies from "./screens/ViewAll/ViewAllMovies";
 import Buscador from "./components/Buscador/Buscador";
 import Detalle from "./screens/Detalle/Detalle";
 import Popular from "./components/Popular/Popular";
