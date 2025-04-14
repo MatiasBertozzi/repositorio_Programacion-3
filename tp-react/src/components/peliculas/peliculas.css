@@ -5,7 +5,7 @@
     box-shadow: 5px 10px rgba(0, 0, 0, 0.1);
     padding: 15px;
     margin: 20px;
-    background-color: #fff;
+    background-color: #1e3a8a;
   }
 
   .portada {
@@ -13,6 +13,13 @@
     height: auto;
     border-radius: 6px;
     margin-bottom: 10px;
+  }
+
+  :hover.pelicula{
+    width: 260px;
+    transition: all 0.5s;
+    
+   
   }
 
 .botones{list-style: none;
@@ -27,7 +34,7 @@ button.boton{
         margin-top: 3px;
         border-radius: 10px;
         margin-right: 15%;
-        background-color: blueviolet;
+        background-color: #06b6d4;
         width: 150px;
         text-align: center;
     }
@@ -35,5 +42,8 @@ button.boton{
   .hide{
     display: none;
   }
-
+.Titulo-pelis{
+  display: flex;
+  justify-content: center;
+}
     

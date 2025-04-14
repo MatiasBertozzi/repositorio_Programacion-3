@@ -3,6 +3,7 @@ import Peliculas from "../peliculas/peliculas";
 import Buscador from "../Buscador/Buscador";
 import Loader from "../Loader/Loader";
 import "./UpComing.css"
+//import "./public/index.css"
 
 class upcoming extends Component {
     constructor(props){
@@ -85,6 +86,7 @@ class upcoming extends Component {
     render(){
         
         return(
+          <React.Fragment className="UpcomingGeneral">
             <>
                 <h1 className="hUnoHome">Las que se vienen...</h1>
                 <Buscador filtro ={(busqueda) => this.filtrarPeliculas(busqueda)}/>
@@ -101,7 +103,7 @@ class upcoming extends Component {
                     }
                 </section>
                 {!this.state.filterValue ? (
-                <button onClick={() => this.handleViewMore()}>Ver más</button>
+                <button onClick={() => this.handleViewMore()} className="verMas">Ver más</button>
               ) : (
                 ""
               )}               
@@ -109,6 +111,7 @@ class upcoming extends Component {
 
 
             </>
+            </React.Fragment>
 
         )
         

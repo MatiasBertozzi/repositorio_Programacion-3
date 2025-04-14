@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Peliculas from "../peliculas/peliculas";
 import Buscador from "../Buscador/Buscador";
 import Loader from "../Loader/Loader";
+import "./Popular.css"
 //import "./Home.css"
 
 class Popular extends Component {
@@ -101,7 +102,7 @@ class Popular extends Component {
                     }
                 </section>
                 {!this.state.filterValue ? (
-                <button onClick={() => this.handleViewMore()}>Ver más</button>
+                <button onClick={() => this.handleViewMore()} className="verMas">Ver más</button>
               ) : (
                 ""
               )}               

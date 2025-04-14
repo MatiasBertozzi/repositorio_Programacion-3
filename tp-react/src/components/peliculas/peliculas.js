@@ -67,7 +67,7 @@ sacarFavoritos(id){
      
         <div className='pelicula'>
             <img className='portada' src={`https://image.tmdb.org/t/p/w185${this.state.pelis.poster_path}`}/>
-            <p>Titulo: {this.state.pelis.title}</p>
+            <p className='Titulo-pelis'>Titulo: {this.state.pelis.title}</p>
             <p className={this.state.mostrarContenido ? '' : 'hide'}> Descripcion: {this.state.pelis.overview}</p>
             <div className='botones'>
                 {this.state.mostrarContenido ?  
