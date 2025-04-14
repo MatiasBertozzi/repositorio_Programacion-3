@@ -6,6 +6,8 @@
     padding: 15px;
     margin: 20px;
     background-color: #1e3a8a;
+    transition: all 0.5s;
+    
   }
 
   .portada {
@@ -16,11 +18,11 @@
   }
 
   :hover.pelicula{
-    width: 260px;
+    width: 270px;
     transition: all 0.5s;
-    
-   
   }
+
+
 
 .botones{list-style: none;
     border-radius: 20px;

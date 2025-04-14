@@ -1,0 +1,14 @@
+.caja-padre{
+    display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+}
+
+.caja-section{
+    display: block;
+    text-align: center;
+}
+
+
+
