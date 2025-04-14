@@ -6,7 +6,7 @@ export default class Detalle extends Component {
         super(props)
         this.state={
             info:[],
-            favorito: true
+            favorito: true,
         }
     }
 
@@ -32,6 +32,7 @@ export default class Detalle extends Component {
         }
     }
 
+
     agregarFavoritos(id){
         let storage = localStorage.getItem('Favoritos')
         if(storage !== null){
@@ -46,9 +47,11 @@ export default class Detalle extends Component {
         }
         this.setState({
             favorito: false
+
         })
     }
     
+
     sacarFavoritos(id){
         const storage = localStorage.getItem('Favoritos')
         const storageParseado = JSON.parse(storage)
@@ -56,9 +59,8 @@ export default class Detalle extends Component {
         const storageStringificado = JSON.stringify(filtrarStorage)
         localStorage.setItem('Favoritos', storageStringificado)
     
-        this.setState({
-            favorito: true
-        })
+        this.setState({favorito: true})
+
         }
 
   render() {
@@ -87,6 +89,7 @@ export default class Detalle extends Component {
       </>
     )
   }
+
 }
 
  

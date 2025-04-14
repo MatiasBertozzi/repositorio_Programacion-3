@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from "react-router-dom"
-import "./peliculas.css"
-
-export default class Peliculas extends Component {
-
+export default class Favoritos extends Component {
     constructor(props){
         super(props)
         this.state={
@@ -17,9 +14,6 @@ export default class Peliculas extends Component {
           mostrarContenido: !this.state.mostrarContenido
       })
   }
-  /* la navegacion se puede realizar mediante Link o por la libreria de React-router-dom,
-  que ofrece metodos para lograr esto, para eso necesitamos que lleguen las props de la libreria*/
-
 
   componentDidMount(){
   let storage= localStorage.getItem('Favoritos')
@@ -56,6 +50,12 @@ sacarFavoritos(id){
     const storageStringificado = JSON.stringify(filtrarStorage)
     localStorage.setItem('Favoritos', storageStringificado)
     this.setState({favorito: true});
+
+    if (this.props.quitar !== undefined) {
+        this.props.quitar(id)
+      }
+      
+    
     }
 
 
@@ -90,3 +90,5 @@ sacarFavoritos(id){
  
   
 }
+
+
