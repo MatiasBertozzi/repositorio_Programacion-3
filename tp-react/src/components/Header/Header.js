@@ -12,7 +12,7 @@ const Header = () => {
             <NavBar link="/viewall/upComing" elemento="Estrenos" />
         </ul>
 
-        <img  src="" alt="imagen" />
+        <img  className="imagen" src="/img/cine.jpg" alt="imagen" />
     </nav>
 </>
   );
